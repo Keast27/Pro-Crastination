@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 public class Player : MonoBehaviour
 {
@@ -45,12 +44,6 @@ public class Player : MonoBehaviour
     public Vector2 teleportPosition;
     Vector2 returnPosition;
 
-    public Text keepReading;
-    public GameObject textBox;
-    public GameObject choiceBox;
-
- 
-
     // Use this for initialization
     void Start()
     {
@@ -71,8 +64,8 @@ public class Player : MonoBehaviour
         deskSitNoCoffee = Resources.LoadAll<Sprite>("Sprites/SteveSitsNoCoffee");
         deskSitStained = Resources.LoadAll<Sprite>("Sprites/SteveSitsStain");
 
-        currentwalk = stevewalk[0];
-        currentdesk = deskSit[0];
+        //currentwalk = stevewalk[0];
+        //currentdesk = deskSit[0];
 
         stevewalkAnim = Resources.Load<RuntimeAnimatorController>("Sprites/SteveWalk_0");
         coffeewalkAnim = Resources.Load<RuntimeAnimatorController>("Sprites/SteveWalkCoffee_0");
@@ -93,11 +86,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
-        KeepReading();
+        //Move();
     }
 
-    // Moves player using rigid body
+    
+    /*// Moves player using rigid body
     private void Move()
     {
         float moveX = Input.GetAxis("Horizontal");
@@ -129,6 +122,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+    */
 
     void Flip()
     {
@@ -136,32 +130,6 @@ public class Player : MonoBehaviour
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-    }
-
-    // Goes to next line when space is pressed
-    void KeepReading()
-    {
-        if (textBox.activeSelf || choiceBox.activeSelf)
-        {
-            rigidBody.constraints = RigidbodyConstraints2D.FreezeAll; // Stops movement when text is being displayed
-            displayedTime += Time.deltaTime;
-            if (textBox.activeSelf)
-            {
-                // Prevents going to next line immediately after conversation starts
-                if (Input.GetKeyDown(KeyCode.Space) && displayedTime >= 0.5f)
-                    keepReading.GetComponent<Button>().onClick.Invoke();
-            }
-            if (choiceBox.activeSelf)
-            {
-                FindObjectOfType<DialogueManager>().MakeChoice();
-            }
-        }
-        // Allows movement
-        else
-        {
-            rigidBody.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-            displayedTime = 0;
-        }
     }
 
     public void Teleport()
@@ -200,6 +168,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    /*
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (currentwalk == stevewalk[0] && collision.gameObject.name == "WaterCooler_0")
@@ -247,6 +216,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+    */
 
     private void changeSpriteWalk(Sprite sprite, RuntimeAnimatorController controller)
     {

@@ -1,61 +1,51 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    private static GameObject s_gameObject;
+    private static Dialogue dialogue;
 
-    public Queue<string> sentences; // Text to be displayed
+    private Queue<string> sentences; // Text to be displayed
 
-    public GameObject textBox; // Box for dialogue
-    public GameObject choiceBox; // Box for Question + choices
-
-    public Text dialogueText;
-    public Text question;
-
-    public List<Text> texts; // Options 
-    public List<string> altText; // Text following selected option
-
-    public string[] choices; // Possible responses to question
+    public TextMeshProUGUI textUI; // Box for dialogue
+    //public Text question;
 
     public bool endText = false; // Conversation ended
-    public bool makeChoice = false; // Will this conversation have a question?
+
+    private void Awake()
+    {
+        s_gameObject = gameObject;
+        s_gameObject.SetActive(false);
+    }
 
     // Use this for initialization
     void Start()
     {
-        sentences = new Queue<string>();
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-
+        StartDialogue();
+        UIManager.submit.performed += DisplayNextSentence;
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public static void SetDialogue(Dialogue _dialogue)
+    {
+        dialogue = _dialogue;
+        s_gameObject.SetActive(true);
+    }
+
+    public void StartDialogue()
     {
         endText = false; // Text has started
-        texts = new List<Text>();
-        texts.AddRange(choiceBox.GetComponentsInChildren<Text>()); // Puts choices in ChoiceBox into list
-        sentences.Clear(); // Gets rid of previous conversation
-        textBox.SetActive(true); // Displays text box
-
-        foreach (string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
-
-        // If there are no choices to make the choiceBox never shows up
-        if (dialogue.choices.Length != 0)
-        {
-            altText = dialogue.altDialogue; // Gets possible alternative text
-            texts[0].text = dialogue.question;
-            choices = dialogue.choices;
-            makeChoice = true;
-        }
+        //texts.AddRange(choiceBox.GetComponentsInChildren<Text>()); // Puts choices in ChoiceBox into list
+        //sentences.Clear(); // Gets rid of previous conversation
+        textUI.gameObject.SetActive(true); // Displays text box
 
         DisplayNextSentence(); // Shows first sentence
     }
@@ -63,10 +53,10 @@ public class DialogueManager : MonoBehaviour
     // Types out sentence
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueText.text = "";
+        textUI.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            dialogueText.text += letter;
+            textUI.text += letter;
             yield return new WaitForSeconds(0.01f);
         }
     }
@@ -75,78 +65,71 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence()
     {
         // End conversation when there are no more sentences
-        if (sentences.Count == 0 || sentences == null)
+        if (dialogue.Sentences.Count == 0 || dialogue.Sentences == null)
         {
             EndDialogue();
             return;
         }
 
         // Displays next sentence
-        string sentence = sentences.Dequeue();
+        string sentence = dialogue.Sentences.Dequeue();
         StopAllCoroutines(); // Stops typing if sentence skipped while in the middle of displaying
         StartCoroutine(TypeSentence(sentence));
     }
 
-    // Stops conversation
-    public void EndDialogue()
+    public void DisplayNextSentence(InputAction.CallbackContext context)
     {
-        textBox.SetActive(false);
+        DisplayNextSentence();
+    }
+
+    // Stops conversation
+    public static void EndDialogue()
+    {
+        s_gameObject.SetActive(false);
+        SteveController.ActionMap = PlayerActionMap.Standard;
         // If there are any choices to make they'll be shown after the orginal conversation ends
-        if (!makeChoice || choiceBox.activeSelf)
-        {
-            choiceBox.SetActive(false);
-            endText = true; // End of conversation
-        }
-        else
-        {
-            DisplayChoices(choices);
-        }
+        //if (choiceBox.activeSelf)
+        //{
+        //    choiceBox.SetActive(false);
+        //    endText = true; // End of conversation
+        //}
+        //else
+        //{
+        //    DisplayChoices(choices);
+        //}
+    }
+
+    private void OnDisable()
+    {
+        UIManager.submit.performed -= DisplayNextSentence;
+        textUI.gameObject.SetActive(false);
     }
 
     // Displays choices
     public void DisplayChoices(string[] choices)
     {
         // Displayes the correct number of choices
-        if (choices.Length < texts.Count)
-        {
-            for (int i = 1; i < texts.Count - choices.Length; i++)
-            {
-                texts[texts.Count - i].gameObject.SetActive(false);
-            }
-        }
-        else
-        {
-            for (int i = 1; i == texts.Count - choices.Length; i++)
-            {
-                texts[texts.Count - i].gameObject.SetActive(true);
-            }
-        }
+        //if (choices.Length < texts.Count)
+        //{
+        //    for (int i = 1; i < texts.Count - choices.Length; i++)
+        //    {
+        //        texts[texts.Count - i].gameObject.SetActive(false);
+        //    }
+        //}
+        //else
+        //{
+        //    for (int i = 1; i == texts.Count - choices.Length; i++)
+        //    {
+        //        texts[texts.Count - i].gameObject.SetActive(true);
+        //    }
+        //}
+        //
+        //for (int i = 0; i < choices.Length; i++)
+        //{
+        //    texts[i + 1].text = choices[i];
+        //}
 
-        for (int i = 0; i < choices.Length; i++)
-        {
-            texts[i + 1].text = choices[i];
-        }
-        choiceBox.SetActive(true); // Displays choices Box
-    }
-
-    public void MakeChoice()
-    {
-        return;
-    }
-
-    public void AltText(int index)
-    {
-        endText = false;
-        Debug.Log(altText[index - 1]);
-        if (altText[index - 1] != "")
-        {
-            sentences.Enqueue(altText[index - 1]);
-            choiceBox.SetActive(false);
-            makeChoice = false;
-            textBox.SetActive(true);
-            DisplayNextSentence();
-        }
-        else
-            EndDialogue();
+        //ChoiceManager.Destroy
+        //choiceBox.SetActive(true); // Displays choices Box
     }
 }

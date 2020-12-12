@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Choices : MonoBehaviour
 {
-
     public Player player;
     private Color originalColor;
 
@@ -17,20 +16,20 @@ public class Choices : MonoBehaviour
         Debug.Log(name);
         int index = int.Parse(name);
         Debug.Log(index);
-        FindObjectOfType<DialogueManager>().AltText(index);
+        //FindObjectOfType<DialogueManager>().AltText(index);
     }
 
     // End conversation
     public void StopDialogue()
     {
-        FindObjectOfType<DialogueManager>().EndDialogue();
+        DialogueManager.EndDialogue();
     }
 
     // Teleport to location
     public void GlitchOut()
     {
         Debug.Log("Clicked!");
-        FindObjectOfType<DialogueManager>().EndDialogue();
+        DialogueManager.EndDialogue();
         player.Teleport();
     }
 
