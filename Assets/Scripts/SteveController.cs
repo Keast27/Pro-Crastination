@@ -42,7 +42,7 @@ public class SteveController : MonoBehaviour
         inputs = new PlayerControls();
         rigidBody = GetComponent<Rigidbody2D>();
         ActionMap = PlayerActionMap.Standard;
-
+        spRend = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -74,9 +74,9 @@ public class SteveController : MonoBehaviour
 
     private void Move()
     {
-        spRend = GetComponent<SpriteRenderer>();
-        
+        Debug.Log(moveVec);
         Debug.Log(spRend.flipX);
+
         if (moveVec.x != 0)
         {
             if ((moveVec.x * -1 == -moveVec.x) && flipped == true) //pos, right
@@ -98,7 +98,9 @@ public class SteveController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out interactable))
-            inputs.Standard.Interact.performed += interactable.Interact;
+        {
+            inputs.Standard.Interact.started += interactable.Interact;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -108,7 +110,7 @@ public class SteveController : MonoBehaviour
             if (oldInteractable != interactable)
                 return;
 
-            inputs.Standard.Interact.performed -= interactable.Interact;
+            inputs.Standard.Interact.started -= interactable.Interact;
             interactable = null;
         }
     }

@@ -22,6 +22,7 @@ public class Talkable : MonoBehaviour, IInteractable
     // Starts conversation
     public void Interact(InputAction.CallbackContext context)
     {
+        SteveController.ActionMap = PlayerActionMap.UI;
         script.StartDialogue();
     }
 
