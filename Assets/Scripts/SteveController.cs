@@ -75,20 +75,28 @@ public class SteveController : MonoBehaviour
     private void Move()
     {
         spRend = GetComponent<SpriteRenderer>();
-        
+        anim = GetComponent<Animator>();
         Debug.Log(spRend.flipX);
         if (moveVec.x != 0)
         {
-            if ((moveVec.x * -1 == -moveVec.x) && flipped == true) //pos, right
+            anim.SetBool("Walking", true);
+            if ((moveVec.x > 0) && flipped == true) //pos, right
             {               
                     spRend.flipX = !spRend.flipX;
                     flipped = false;
             }
-            if ((moveVec.x * -1 == moveVec.x) && flipped == false) //neg, left
+            if ((moveVec.x < 0) && flipped == false) //neg, left
             {               
                     spRend.flipX = !spRend.flipX;
                     flipped = true;                
             }
+        } else if(moveVec.y != 0)
+        {
+            anim.SetBool("Walking", true);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
         }
         
         
