@@ -67,9 +67,6 @@
     <Compile Include="Assets\Scripts\Choices.cs" />
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
-    <Compile Include="Assets\Scripts\Element Info\ChoiceElementInfo.cs" />
-    <Compile Include="Assets\Scripts\Element Info\DialogueElementInfo.cs" />
-    <Compile Include="Assets\Scripts\Element Info\IDialogueTreeElementInfo.cs" />
     <Compile Include="Assets\Scripts\Interactable.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\SteveController.cs" />
