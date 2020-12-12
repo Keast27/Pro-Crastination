@@ -10,13 +10,15 @@ public enum PlayerActionMap
 }
 public class SteveController : MonoBehaviour
 {
+
     [SerializeField] private float speed = 3f;
     private IInteractable interactable;
     private Rigidbody2D rigidBody;
     private Vector2 moveVec;
-
+    private Animator anim;
+    private SpriteRenderer spRend;
     private static PlayerControls inputs;
-
+    private bool flipped;
     public static PlayerActionMap ActionMap
     {
         set
@@ -72,6 +74,24 @@ public class SteveController : MonoBehaviour
 
     private void Move()
     {
+        spRend = GetComponent<SpriteRenderer>();
+        
+        Debug.Log(spRend.flipX);
+        if (moveVec.x != 0)
+        {
+            if ((moveVec.x * -1 == -moveVec.x) && flipped == true) //pos, right
+            {               
+                    spRend.flipX = !spRend.flipX;
+                    flipped = false;
+            }
+            if ((moveVec.x * -1 == moveVec.x) && flipped == false) //neg, left
+            {               
+                    spRend.flipX = !spRend.flipX;
+                    flipped = true;                
+            }
+        }
+        
+        
         rigidBody.velocity = speed * moveVec;
     }
 
