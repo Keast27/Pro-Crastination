@@ -11,12 +11,16 @@ public enum PlayerActionMap
 }
 public class SteveController : MonoBehaviour
 {
+
     [SerializeField] private float speed = 3f;
     private IInteractable interactable;
     private Rigidbody2D rigidBody;
     private Vector2 moveVec;
 
-    public static PlayerControls inputs;
+    private Animator anim;
+    private SpriteRenderer spRend;
+    private static PlayerControls inputs;
+    private bool flipped;
 
     public static PlayerActionMap ActionMap
     {
@@ -48,7 +52,8 @@ public class SteveController : MonoBehaviour
         inputs = new PlayerControls();
         rigidBody = GetComponent<Rigidbody2D>();
         ActionMap = PlayerActionMap.Standard;
-
+        spRend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -80,13 +85,38 @@ public class SteveController : MonoBehaviour
 
     private void Move()
     {
+        Debug.Log(spRend.flipX);
+
+        if (moveVec.x != 0)
+        {
+            anim.SetBool("Walking", true);
+            if ((moveVec.x > 0) && flipped == true) //pos, right
+            {               
+                    spRend.flipX = !spRend.flipX;
+                    flipped = false;
+            }
+            if ((moveVec.x < 0) && flipped == false) //neg, left
+            {               
+                    spRend.flipX = !spRend.flipX;
+                    flipped = true;                
+            }
+        } else if(moveVec.y != 0)
+        {
+            anim.SetBool("Walking", true);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
+        }        
         rigidBody.velocity = speed * moveVec;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.TryGetComponent(out interactable))
-            inputs.Standard.Interact.performed += interactable.Interact;
+        {
+            inputs.Standard.Interact.started += interactable.Interact;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -96,7 +126,7 @@ public class SteveController : MonoBehaviour
             if (oldInteractable != interactable)
                 return;
 
-            inputs.Standard.Interact.performed -= interactable.Interact;
+            inputs.Standard.Interact.started -= interactable.Interact;
             interactable = null;
         }
     }

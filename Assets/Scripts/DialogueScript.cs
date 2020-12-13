@@ -12,7 +12,6 @@ public class DialogueScript : ScriptableObject
 
     public void StartDialogue()
     {
-        SteveController.ActionMap = PlayerActionMap.UI;
         DialogueManager.SetDialogue(dialogue);
     }
 }

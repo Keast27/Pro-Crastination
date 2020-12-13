@@ -25,13 +25,12 @@ public class DialogueManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
     }
 
     private void OnEnable()
     {
-        StartDialogue();
         UIManager.submit.performed += DisplayNextSentence;
+        StartDialogue();
     }
 
     public static void SetDialogue(Dialogue _dialogue)
@@ -43,8 +42,12 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue()
     {
         endText = false; // Text has started
+        sentences = new Queue<string>();
         //texts.AddRange(choiceBox.GetComponentsInChildren<Text>()); // Puts choices in ChoiceBox into list
         //sentences.Clear(); // Gets rid of previous conversation
+        foreach (string sentence in dialogue.sentences)
+            sentences.Enqueue(sentence);
+
         textUI.gameObject.SetActive(true); // Displays text box
 
         DisplayNextSentence(); // Shows first sentence
@@ -65,14 +68,14 @@ public class DialogueManager : MonoBehaviour
     public void DisplayNextSentence()
     {
         // End conversation when there are no more sentences
-        if (dialogue.Sentences.Count == 0 || dialogue.Sentences == null)
+        if (sentences.Count == 0 || sentences == null)
         {
             EndDialogue();
             return;
         }
 
         // Displays next sentence
-        string sentence = dialogue.Sentences.Dequeue();
+        string sentence = sentences.Dequeue();
         StopAllCoroutines(); // Stops typing if sentence skipped while in the middle of displaying
         StartCoroutine(TypeSentence(sentence));
     }
@@ -102,7 +105,7 @@ public class DialogueManager : MonoBehaviour
     private void OnDisable()
     {
         UIManager.submit.performed -= DisplayNextSentence;
-        textUI.gameObject.SetActive(false);
+        //textUI.gameObject.SetActive(false);
     }
 
     // Displays choices

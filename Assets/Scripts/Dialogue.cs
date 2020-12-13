@@ -6,9 +6,10 @@ using UnityEngine;
 public class Dialogue : ScriptableObject
 {
     [TextArea(3, 10)]
-    [SerializeField] private string[] sentences; // Dialogue
-    private Queue<string> sentenceQueue;
+    public string[] sentences; // Dialogue
+    //private Queue<string> sentenceQueue;
 
+    /*
     public Queue<string> Sentences
     {
         get
@@ -25,4 +26,5 @@ public class Dialogue : ScriptableObject
             return sentenceQueue;
         }
     } // Dialogue
+    */
 }
