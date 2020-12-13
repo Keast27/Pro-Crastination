@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4509341185494924723}
   - component: {fileID: 5598787112815202917}
-  - component: {fileID: 3309046911837089954}
+  - component: {fileID: 960074336}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
---- !u!114 &3309046911837089954
+--- !u!114 &960074336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
-  m_ActionsAsset: {fileID: -944628639613478452, guid: 719ecba8a7dc20747af72049847f3104,
+  m_ActionsAsset: {fileID: -944628639613478452, guid: ca9f5fa95ffab41fb9a615ab714db018,
     type: 3}
   m_PointAction: {fileID: 6242688574963636028, guid: 719ecba8a7dc20747af72049847f3104,
     type: 3}
