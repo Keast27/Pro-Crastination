@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3b7c9cbba90564c9c94ddf4d049f82, type: 3}
+  m_Name: DC_Printer_Butt
+  m_EditorClassIdentifier: 
+  sentences:
+  - "You\u2019re an adult in your late twenties. It\u2019s important to state that
+    before commencing in narrating this god awful forsaken task you are about to
+    do. I just really think you should know that you are an adult with a job."
+  - You shamelessly pull down your pants and put your other pair of cheeks on the
+    screen. The scanner goes and does its job. Did you even think to ask the scanners
+    consent you sick freak?
+  - Once the scanner finishes you hop down, pull your pants up, and watch as it prints
+    an image of your buttocks.
+  - "Have you been amused? Are you proud of yourself? Of your life, job, do you hate
+    it all? Is that why you won\u2019t go back to work? I don\u2019t get paid enough
+    for this."

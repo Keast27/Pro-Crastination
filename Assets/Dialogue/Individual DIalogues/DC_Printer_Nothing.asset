@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3b7c9cbba90564c9c94ddf4d049f82, type: 3}
+  m_Name: DC_Printer_Nothing
+  m_EditorClassIdentifier: 
+  sentences:
+  - You open the scanner, put nothing in it, and close it. You then hit the scan
+    button. The machine makes a noise, a light flashes against nothingness, and then,
+    it scribes the image just for you. Now you know what nothing looks like.
+  - "...Oh wait? You literally didn\u2019t want to print anything? Oh, why didn\u2019t
+    you say so, ink wouldn\u2019t have been wasted. Unless you were using this as
+    a distraction- oh my gosh you\u2019re still procrastinating."
+  - How sad.

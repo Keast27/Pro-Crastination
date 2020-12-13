@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3b7c9cbba90564c9c94ddf4d049f82, type: 3}
+  m_Name: D_FilingCabinet
+  m_EditorClassIdentifier: 
+  sentences:
+  - You throw open one of the drawers of the filing cabinet. In the drawers you see
+    hundreds of papers and folders- past work from other, hard working employees.
+  - "You grab a file and glance through its contents. It\u2019s full of graphs and
+    charts from an old project. You almost feel like it\u2019s something you can
+    use for your project."
