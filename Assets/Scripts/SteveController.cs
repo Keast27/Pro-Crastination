@@ -85,8 +85,6 @@ public class SteveController : MonoBehaviour
 
     private void Move()
     {
-        Debug.Log(spRend.flipX);
-
         if (moveVec.x != 0)
         {
             anim.SetBool("Walking", true);
