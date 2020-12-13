@@ -719,6 +719,52 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""WaterDispenser"",
+            ""id"": ""c59a8e09-55b3-4aa1-a35e-d4c6873e1318"",
+            ""actions"": [
+                {
+                    ""name"": ""MouseMovement"",
+                    ""type"": ""Value"",
+                    ""id"": ""80490c38-e58e-4050-955c-448920fa9efd"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""c9f62015-2fc8-4239-b86c-bb41315badd5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""dcad7090-a61a-4dbc-a5db-9c710df40667"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""MouseMovement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1db98f3d-74be-4412-b1e4-5a2b8d5e1bdd"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -740,6 +786,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Standard_Interact = m_Standard.FindAction("Interact", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
+        // WaterDispenser
+        m_WaterDispenser = asset.FindActionMap("WaterDispenser", throwIfNotFound: true);
+        m_WaterDispenser_MouseMovement = m_WaterDispenser.FindAction("MouseMovement", throwIfNotFound: true);
+        m_WaterDispenser_Interact = m_WaterDispenser.FindAction("Interact", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
@@ -750,6 +801,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
+
     }
 
     public void Dispose()
@@ -941,6 +993,47 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // WaterDispenser
+    private readonly InputActionMap m_WaterDispenser;
+    private IWaterDispenserActions m_WaterDispenserActionsCallbackInterface;
+    private readonly InputAction m_WaterDispenser_MouseMovement;
+    private readonly InputAction m_WaterDispenser_Interact;
+    public struct WaterDispenserActions
+    {
+        private @PlayerControls m_Wrapper;
+        public WaterDispenserActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MouseMovement => m_Wrapper.m_WaterDispenser_MouseMovement;
+        public InputAction @Interact => m_Wrapper.m_WaterDispenser_Interact;
+        public InputActionMap Get() { return m_Wrapper.m_WaterDispenser; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WaterDispenserActions set) { return set.Get(); }
+        public void SetCallbacks(IWaterDispenserActions instance)
+        {
+            if (m_Wrapper.m_WaterDispenserActionsCallbackInterface != null)
+            {
+                @MouseMovement.started -= m_Wrapper.m_WaterDispenserActionsCallbackInterface.OnMouseMovement;
+                @MouseMovement.performed -= m_Wrapper.m_WaterDispenserActionsCallbackInterface.OnMouseMovement;
+                @MouseMovement.canceled -= m_Wrapper.m_WaterDispenserActionsCallbackInterface.OnMouseMovement;
+                @Interact.started -= m_Wrapper.m_WaterDispenserActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_WaterDispenserActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_WaterDispenserActionsCallbackInterface.OnInteract;
+            }
+            m_Wrapper.m_WaterDispenserActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @MouseMovement.started += instance.OnMouseMovement;
+                @MouseMovement.performed += instance.OnMouseMovement;
+                @MouseMovement.canceled += instance.OnMouseMovement;
+                @Interact.started += instance.OnInteract;
+                @Interact.performed += instance.OnInteract;
+                @Interact.canceled += instance.OnInteract;
+            }
+        }
+    }
+    public WaterDispenserActions @WaterDispenser => new WaterDispenserActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -976,5 +1069,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
+    }
+    public interface IWaterDispenserActions
+    {
+        void OnMouseMovement(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
     }
 }

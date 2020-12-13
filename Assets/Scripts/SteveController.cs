@@ -6,7 +6,8 @@ using UnityEngine.InputSystem;
 public enum PlayerActionMap
 {
     Standard,
-    UI
+    UI,
+    WaterDispenser
 }
 public class SteveController : MonoBehaviour
 {
@@ -15,10 +16,12 @@ public class SteveController : MonoBehaviour
     private IInteractable interactable;
     private Rigidbody2D rigidBody;
     private Vector2 moveVec;
+
     private Animator anim;
     private SpriteRenderer spRend;
     private static PlayerControls inputs;
     private bool flipped;
+
     public static PlayerActionMap ActionMap
     {
         set
@@ -28,10 +31,17 @@ public class SteveController : MonoBehaviour
                 case PlayerActionMap.Standard:
                     inputs.Standard.Enable();
                     inputs.UI.Disable();
+                    inputs.WaterDispenser.Disable();
                     break;
                 case PlayerActionMap.UI:
                     inputs.Standard.Disable();
                     inputs.UI.Enable();
+                    inputs.WaterDispenser.Disable();
+                    break;
+                case PlayerActionMap.WaterDispenser:
+                    inputs.WaterDispenser.Enable();
+                    inputs.Standard.Disable();
+                    inputs.UI.Disable();
                     break;
             }
         }
