@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544596cf8e958dc438d17746329d0ed0, type: 3}
   m_Name: C_PlayerDesk_No
   m_EditorClassIdentifier: 
-  choice: Heck yeah, I love doing stuff with my life!
+  choice: What's that thing over there...?
   dialogue: {fileID: 0}
   interaction:
     m_PersistentCalls:

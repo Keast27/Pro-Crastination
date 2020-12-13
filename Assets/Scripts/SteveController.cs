@@ -103,9 +103,10 @@ public class SteveController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out interactable))
+        if (interactable == null)
         {
-            inputs.Standard.Interact.started += interactable.Interact;
+            if (collision.gameObject.TryGetComponent(out interactable))
+                inputs.Standard.Interact.performed += interactable.Interact;
         }
     }
 
@@ -116,7 +117,7 @@ public class SteveController : MonoBehaviour
             if (oldInteractable != interactable)
                 return;
 
-            inputs.Standard.Interact.started -= interactable.Interact;
+            inputs.Standard.Interact.performed -= interactable.Interact;
             interactable = null;
         }
     }

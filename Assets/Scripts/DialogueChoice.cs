@@ -13,12 +13,14 @@ public class DialogueChoice : ScriptableObject
 
     private void OnDisable()
     {
-        if (dialogue == null)
-            onChoiceSelected += () => DialogueManager.SetDialogue(dialogue);
     }
 
     public void ChoiceSelected()
     {
+        if (dialogue != null)
+            onChoiceSelected += () => DialogueManager.SetDialogue(dialogue, true);
+
+        //onChoiceSelected += ChoiceManager.HideChoices;
         onChoiceSelected?.Invoke();
         interaction?.Invoke();
     }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544596cf8e958dc438d17746329d0ed0, type: 3}
   m_Name: C_FilingCabinet_NotTake
   m_EditorClassIdentifier: 
-  choice: 
-  dialogue: {fileID: 0}
+  choice: Put it back
+  dialogue: {fileID: 11400000, guid: 74767bf8ed63e5c4f910f84140bd8748, type: 2}
   interaction:
     m_PersistentCalls:
       m_Calls: []

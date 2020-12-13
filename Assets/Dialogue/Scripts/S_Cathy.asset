@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384777027d7bd5746a377e8efbf12a8f, type: 3}
   m_Name: S_Cathy
   m_EditorClassIdentifier: 
-  name: 
-  dialogue: {fileID: 0}
+  speaker: Cathy
+  dialogue: {fileID: 11400000, guid: 76fa7b7a36e63d34d994e96671fd275d, type: 2}
   choices:
   - {fileID: 0}
   - {fileID: 0}

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544596cf8e958dc438d17746329d0ed0, type: 3}
   m_Name: C_Boss_Silent
   m_EditorClassIdentifier: 
-  choice: 
-  dialogue: {fileID: 0}
+  choice: ....
+  dialogue: {fileID: 11400000, guid: 679ef4593b448e746b570d99883ddd3c, type: 2}
   interaction:
     m_PersistentCalls:
       m_Calls: []

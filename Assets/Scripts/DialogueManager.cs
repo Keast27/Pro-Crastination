@@ -8,17 +8,25 @@ public class DialogueManager : MonoBehaviour
 {
     private static GameObject s_gameObject;
     private static Dialogue dialogue;
+    private static string objectName;
+    //private static DialogueManager self;
+    private static bool firstTime = true;
+    public static bool endText = false; // Conversation ended
 
-    private Queue<string> sentences; // Text to be displayed
+    public static DialogueManager Self { get; private set; }
+
+    private static Queue<string> sentences; // Text to be displayed
 
     public TextMeshProUGUI textUI; // Box for dialogue
+    public TextMeshProUGUI nameUI; // Box for name
     //public Text question;
 
-    public bool endText = false; // Conversation ended
 
     private void Awake()
     {
+        Self = this;
         s_gameObject = gameObject;
+        firstTime = true;
         s_gameObject.SetActive(false);
     }
 
@@ -30,21 +38,45 @@ public class DialogueManager : MonoBehaviour
     private void OnEnable()
     {
         UIManager.submit.performed += DisplayNextSentence;
+        nameUI.text = objectName;
         StartDialogue();
     }
 
-    public static void SetDialogue(Dialogue _dialogue)
+    /*
+    public void StartDialogue(Dialogue _dialogue, string _objectName)
     {
         dialogue = _dialogue;
+        objectName = _objectName;
+        UIManager.submit.performed += DisplayNextSentence;
+        nameUI.text = objectName;
         s_gameObject.SetActive(true);
+        StartDialogue();
+    }
+    */
+
+    public static void SetDialogue(Dialogue _dialogue, string _objectName, bool last = false)
+    {
+        dialogue = _dialogue;
+        objectName = _objectName;
+        endText = last;
+        s_gameObject.SetActive(true);
+    }
+
+    public static void SetDialogue(Dialogue _dialogue, bool last = false)
+    {
+        dialogue = _dialogue;
+        endText = last;
+
+        foreach (string sentence in dialogue.sentences)
+            sentences.Enqueue(sentence);
+
     }
 
     public void StartDialogue()
     {
         endText = false; // Text has started
         sentences = new Queue<string>();
-        //texts.AddRange(choiceBox.GetComponentsInChildren<Text>()); // Puts choices in ChoiceBox into list
-        //sentences.Clear(); // Gets rid of previous conversation
+
         foreach (string sentence in dialogue.sentences)
             sentences.Enqueue(sentence);
 
@@ -61,16 +93,29 @@ public class DialogueManager : MonoBehaviour
         {
             textUI.text += letter;
             yield return new WaitForSeconds(0.01f);
+            if (letter == '-')
+                DisplayNextSentence();
+
+            if (textUI.isTextOverflowing)
+                textUI.pageToDisplay = textUI.textInfo.pageCount;
         }
     }
 
     // Goes to next sentence
     public void DisplayNextSentence()
     {
+        textUI.pageToDisplay = 0;
         // End conversation when there are no more sentences
         if (sentences.Count == 0 || sentences == null)
         {
-            EndDialogue();
+            if (endText)
+            {
+                EndDialogue();
+                return;
+            }
+
+            if (UIManager.currentScript.HasChoices)
+                ChoiceManager.ShowChoices(UIManager.currentScript.choices);
             return;
         }
 
@@ -82,14 +127,22 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence(InputAction.CallbackContext context)
     {
+        if (firstTime)
+        {
+            firstTime = false;
+            return;
+        }
+
         DisplayNextSentence();
     }
 
     // Stops conversation
     public static void EndDialogue()
     {
-        s_gameObject.SetActive(false);
+        sentences.Clear();
         SteveController.ActionMap = PlayerActionMap.Standard;
+        s_gameObject.SetActive(false);
+        //firstTime = false;
         // If there are any choices to make they'll be shown after the orginal conversation ends
         //if (choiceBox.activeSelf)
         //{

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384777027d7bd5746a377e8efbf12a8f, type: 3}
   m_Name: S_WaterCooler
   m_EditorClassIdentifier: 
-  name: 
-  dialogue: {fileID: 0}
+  speaker: Water Cooler
+  dialogue: {fileID: 11400000, guid: ad5baf5fd276362408dd3d31731967c9, type: 2}
   choices:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 4ca38b6d8d757054286b39838f9e7f3f, type: 2}
+  - {fileID: 11400000, guid: bc40cc3fde2832645adab724a2e37af4, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

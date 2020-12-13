@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384777027d7bd5746a377e8efbf12a8f, type: 3}
   m_Name: S_Boss
   m_EditorClassIdentifier: 
-  name: Boss
+  speaker: Boss
   dialogue: {fileID: 11400000, guid: b5ce236b439d99b4bbeb07d6ac339888, type: 2}
   choices:
   - {fileID: 11400000, guid: 2cf0686d705652e43babde047a77e05a, type: 2}

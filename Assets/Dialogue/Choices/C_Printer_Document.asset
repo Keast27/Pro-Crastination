@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544596cf8e958dc438d17746329d0ed0, type: 3}
   m_Name: C_Printer_Document
   m_EditorClassIdentifier: 
-  choice: 
-  dialogue: {fileID: 0}
+  choice: Scan a document
+  dialogue: {fileID: 11400000, guid: 3b3ebc03d3d4442409859f462609a9dd, type: 2}
   interaction:
     m_PersistentCalls:
       m_Calls: []

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544596cf8e958dc438d17746329d0ed0, type: 3}
   m_Name: C_Printer_Hand
   m_EditorClassIdentifier: 
-  choice: 
-  dialogue: {fileID: 0}
+  choice: Scan your hand
+  dialogue: {fileID: 11400000, guid: d10e44ebf698b3b42b73102836d4cb77, type: 2}
   interaction:
     m_PersistentCalls:
       m_Calls: []

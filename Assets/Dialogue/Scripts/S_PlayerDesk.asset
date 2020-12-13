@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384777027d7bd5746a377e8efbf12a8f, type: 3}
   m_Name: S_PlayerDesk
   m_EditorClassIdentifier: 
-  name: 
-  dialogue: {fileID: 0}
+  speaker: Your Desk
+  dialogue: {fileID: 11400000, guid: c1e4a62bae6104a499f9ea399a6b75e7, type: 2}
   choices:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 1aa8d34aa0447754880927eea7cc2785, type: 2}
+  - {fileID: 11400000, guid: 1b4da0e0020eafb4aadc36fba9b92105, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

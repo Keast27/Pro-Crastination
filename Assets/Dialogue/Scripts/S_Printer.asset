@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384777027d7bd5746a377e8efbf12a8f, type: 3}
   m_Name: S_Printer
   m_EditorClassIdentifier: 
-  name: 
-  dialogue: {fileID: 0}
+  speaker: Printer
+  dialogue: {fileID: 11400000, guid: 8e58df4c0552ff24484357cb776d4679, type: 2}
   choices:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 0caf5dda2dba80a418e0f8d4c40863eb, type: 2}
+  - {fileID: 11400000, guid: 46e34abe7b3e1014aa90ae79690c680a, type: 2}
+  - {fileID: 11400000, guid: 5e2ac19649e50f74594dda263dc48f1e, type: 2}
+  - {fileID: 11400000, guid: ff93635940c4288499d679652dc07633, type: 2}
+  - {fileID: 11400000, guid: 7700d5e47676fa643a3f4b84ae27c9e4, type: 2}

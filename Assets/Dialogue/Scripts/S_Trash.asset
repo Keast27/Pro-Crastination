@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 384777027d7bd5746a377e8efbf12a8f, type: 3}
   m_Name: S_Trash
   m_EditorClassIdentifier: 
-  name: 
-  dialogue: {fileID: 0}
+  speaker: Wastepaper Basket
+  dialogue: {fileID: 11400000, guid: 6c7147c86afd8f54bb33f3f360caf19d, type: 2}
   choices:
   - {fileID: 0}
   - {fileID: 0}
