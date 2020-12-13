@@ -7,24 +7,22 @@ using UnityEngine.InputSystem;
 /// <summary>
 /// Class to handle dispensing water
 /// </summary>
-public class WaterDispenser : MonoBehaviour, IPointerDownHandler // Turns out this is all you needed
+public class WaterDispenser : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField]
     private GameObject water = null;
     private bool activated = false;
 
-    public void ToggleDispenser()
+    /// <summary>
+    /// Toggle whether water is dispensing or not when clicked
+    /// </summary>
+    /// <param name="eventData">The event data</param>
+    public void OnPointerDown(PointerEventData eventData)
     {
         activated = !activated;
         if(water)
         {
             water.SetActive(activated);
         }
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log(eventData.pointerCurrentRaycast);
-        ToggleDispenser();
     }
 }
