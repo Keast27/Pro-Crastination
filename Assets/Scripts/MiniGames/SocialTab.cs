@@ -11,9 +11,8 @@ public class SocialTab : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        socialTab.SetActive(true);
-        workTab.SetActive(false);
-        Debug.Log("click click");
+        socialTab.SetActive(false);
+        workTab.SetActive(true);
     }
 
     void Start()
