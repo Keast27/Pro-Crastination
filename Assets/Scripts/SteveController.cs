@@ -97,9 +97,7 @@ public class SteveController : MonoBehaviour
         else
         {
             anim.SetBool("Walking", false);
-        }
-        
-        
+        }        
         rigidBody.velocity = speed * moveVec;
     }
 
