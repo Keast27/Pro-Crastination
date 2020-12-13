@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 /// The istrigger one should be larger than the normal one
 /// And is the range from where you can "talk" with the object
 /// </summary>
+
+[RequireComponent(typeof(BoxCollider2D))]
 public class Talkable : MonoBehaviour, IInteractable
 {
     public DialogueScript script;

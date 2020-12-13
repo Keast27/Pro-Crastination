@@ -9,12 +9,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private InputSystemUIInputModule inputMod;
     public static InputSystemUIInputModule inputModule;
     public static InputAction submit;
+    public static DialogueScript currentScript;
 
     private void Awake()
     {
         inputModule = inputMod;
         submit = inputMod.submit.action;
     }
+
     // Start is called before the first frame update
     void Start()
     {

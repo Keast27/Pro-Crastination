@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3b7c9cbba90564c9c94ddf4d049f82, type: 3}
+  m_Name: DC_Fridge_JonLunch
+  m_EditorClassIdentifier: 
+  sentences:
+  - "You take out a Tupperware full of mashed potatoes, steak, and rice. A good hearty
+    meal. There\u2019s also medication pills. The food seems like it was made with
+    care, possibly by Jon. "
+  - "Cooking is one of his pastimes, and he likes to be in control of his meals due
+    to diabetes and his heart problem. This meal is the perfect way to give good
+    ol\u2019 Jon the boost he needs."
+  - "You eat Jon\u2019s food, and you even consume the pills you sick freak."

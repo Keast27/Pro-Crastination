@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384777027d7bd5746a377e8efbf12a8f, type: 3}
+  m_Name: S_FilingCabinet
+  m_EditorClassIdentifier: 
+  speaker: Filing Cabinet
+  dialogue: {fileID: 11400000, guid: cdbe131178493304184cfff2ce82f10b, type: 2}
+  choices:
+  - {fileID: 11400000, guid: 802fe672e2a89b9439170dc68e60d213, type: 2}
+  - {fileID: 11400000, guid: be4eb179dffd09046b55bfdfb721cc0c, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

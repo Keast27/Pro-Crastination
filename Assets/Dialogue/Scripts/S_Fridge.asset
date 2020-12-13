@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 384777027d7bd5746a377e8efbf12a8f, type: 3}
+  m_Name: S_Fridge
+  m_EditorClassIdentifier: 
+  speaker: Fridge
+  dialogue: {fileID: 11400000, guid: ed7e64241136781458bbbde59fa8c29a, type: 2}
+  choices:
+  - {fileID: 11400000, guid: 9f8340fc5ce95144ab526bbc0039e481, type: 2}
+  - {fileID: 11400000, guid: cd980e17a44737b44a56acb456207fa8, type: 2}
+  - {fileID: 11400000, guid: d3af5d80848964647861a1ec6b4d0c45, type: 2}
+  - {fileID: 11400000, guid: 093817291ac65cf4ab66ae774cec3be4, type: 2}
+  - {fileID: 11400000, guid: e2dbfbca5dcc14341a6b1e9be9b9e980, type: 2}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3b7c9cbba90564c9c94ddf4d049f82, type: 3}
+  m_Name: DC_Fridge_RobLunch
+  m_EditorClassIdentifier: 
+  sentences:
+  - "You take the pretentious blond\u2019s lunch out and examine it. It\u2019s chicken
+    parm made by his loving wife, Lisa. Lisa and Rob are struggling with their marriage
+    because the two are always busy. Rob tries to get work done early, but it seems
+    like he\u2019s always forced to pick up some other guy\u2019s slack. I wonder
+    who that person is"
+  - "Anyways, Rob and Lisa are still trying. This chicken parm is Rob\u2019s favorite
+    dish, and makes him think about his dear wife."
+  - You eat the chicken parm.
