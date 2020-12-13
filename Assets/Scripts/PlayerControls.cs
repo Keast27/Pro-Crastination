@@ -786,11 +786,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Standard_Interact = m_Standard.FindAction("Interact", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Confirm = m_UI.FindAction("Confirm", throwIfNotFound: true);
-        // WaterDispenser
-        m_WaterDispenser = asset.FindActionMap("WaterDispenser", throwIfNotFound: true);
-        m_WaterDispenser_MouseMovement = m_WaterDispenser.FindAction("MouseMovement", throwIfNotFound: true);
-        m_WaterDispenser_Interact = m_WaterDispenser.FindAction("Interact", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
@@ -801,7 +796,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
-
+        // WaterDispenser
+        m_WaterDispenser = asset.FindActionMap("WaterDispenser", throwIfNotFound: true);
+        m_WaterDispenser_MouseMovement = m_WaterDispenser.FindAction("MouseMovement", throwIfNotFound: true);
+        m_WaterDispenser_Interact = m_WaterDispenser.FindAction("Interact", throwIfNotFound: true);
     }
 
     public void Dispose()

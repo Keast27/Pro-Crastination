@@ -204,8 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02a1c6389c76c7948b154e8ec1d518fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputMod: {fileID: 3309046911837089954, guid: c81360f89f3fa2e4086be556b23f0817,
-    type: 3}
+  inputMod: {fileID: 960074336, guid: c81360f89f3fa2e4086be556b23f0817, type: 3}
 --- !u!1 &353368536604048506
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,7 +903,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textUI: {fileID: 1364247327}
   nameUI: {fileID: 5943979143373194256}
-  endText: 0
 --- !u!114 &377872394
 MonoBehaviour:
   m_ObjectHideFlags: 0
