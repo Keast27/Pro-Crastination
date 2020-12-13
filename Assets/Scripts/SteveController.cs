@@ -43,6 +43,7 @@ public class SteveController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         ActionMap = PlayerActionMap.Standard;
         spRend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -74,8 +75,6 @@ public class SteveController : MonoBehaviour
 
     private void Move()
     {
-        spRend = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
         Debug.Log(spRend.flipX);
 
         if (moveVec.x != 0)
