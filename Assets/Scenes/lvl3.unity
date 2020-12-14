@@ -1594,6 +1594,12 @@ CapsuleCollider2D:
   m_Offset: {x: -0.016179323, y: -0.11583562}
   m_Size: {x: 0.0798645, y: 0.08832875}
   m_Direction: 0
+--- !u!4 &556393278 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5602035520078688626, guid: dfad07a57e9bd4c4ba115a9624c19a27,
+    type: 3}
+  m_PrefabInstance: {fileID: 1270591086}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &560909910
 GameObject:
   m_ObjectHideFlags: 0
@@ -4324,57 +4330,7 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1274400462}
     m_ColliderPaths:
-    - - X: 57500000
-        Y: -52500000
-      - X: 52500000
-        Y: -52500000
-      - X: 52500000
-        Y: -45000000
-      - X: 42500000
-        Y: -45000000
-      - X: 42500000
-        Y: -37500000
-      - X: 52500000
-        Y: -37500000
-      - X: 52500000
-        Y: -25000000
-      - X: 42500000
-        Y: -25000000
-      - X: 42500000
-        Y: -17500000
-      - X: 60000000
-        Y: -17500000
-      - X: 60000000
-        Y: -10000000
-      - X: 50000000
-        Y: -10000000
-      - X: 50000000
-        Y: -15000000
-      - X: 30000000
-        Y: -15000000
-      - X: 30000000
-        Y: -7500000
-      - X: 12500000
-        Y: -7500000
-      - X: 12500000
-        Y: -17500000
-      - X: -2500000
-        Y: -17500000
-      - X: -2500000
-        Y: -15000000
-      - X: -9999900
-        Y: -15000000
-      - X: -9999900
-        Y: -15000041
-      - X: -9999959
-        Y: -15000100
-      - X: -12500000
-        Y: -15000100
-      - X: -12500000
-        Y: -22500000
-      - X: -5000000
-        Y: -22500000
-      - X: -5000000
+    - - X: -5000000
         Y: -20000000
       - X: 30000000
         Y: -20000000
@@ -4402,6 +4358,50 @@ CompositeCollider2D:
         Y: -62500000
       - X: 57500000
         Y: -62500000
+      - X: 57500000
+        Y: -52500000
+      - X: 52500000
+        Y: -52500000
+      - X: 52500000
+        Y: -45000000
+      - X: 42500000
+        Y: -45000000
+      - X: 42500000
+        Y: -37500000
+      - X: 52500000
+        Y: -37500000
+      - X: 52500000
+        Y: -25000000
+      - X: 42500000
+        Y: -25000000
+      - X: 42500000
+        Y: -17500000
+      - X: 60000000
+        Y: -17500000
+      - X: 60000000
+        Y: -10000000
+      - X: 50000000
+        Y: -10000000
+      - X: 50000000
+        Y: -15000000
+      - X: 30000000
+        Y: -15000000
+      - X: 30000000
+        Y: -7500000
+      - X: 12500000
+        Y: -7500000
+      - X: 12500000
+        Y: -17500000
+      - X: -2500000
+        Y: -17500000
+      - X: -2500000
+        Y: -15000000
+      - X: -12500000
+        Y: -15000000
+      - X: -12500000
+        Y: -22500000
+      - X: -5000000
+        Y: -22500000
   m_CompositePaths:
     m_Paths:
     - - {x: 5.749971, y: -6.25}
@@ -4424,7 +4424,7 @@ CompositeCollider2D:
       - {x: 1.2499706, y: -1.75}
       - {x: -0.25, y: -1.7499707}
       - {x: -0.2500293, y: -1.5}
-      - {x: -1.25, y: -1.5000393}
+      - {x: -1.25, y: -1.5000293}
       - {x: -1.2499707, y: -2.25}
       - {x: -0.5, y: -2.249971}
       - {x: -0.49997061, y: -2}
@@ -6094,7 +6094,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 556393278}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 0.5
@@ -9983,6 +9983,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2701668295668827261, guid: 0e607066faec2104d99876529db89dc4,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3019986362670528948, guid: 0e607066faec2104d99876529db89dc4,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3019986362670528948, guid: 0e607066faec2104d99876529db89dc4,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3019986362670528948, guid: 0e607066faec2104d99876529db89dc4,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3019986362670528948, guid: 0e607066faec2104d99876529db89dc4,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3019986362670528948, guid: 0e607066faec2104d99876529db89dc4,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4857188444772301861, guid: 0e607066faec2104d99876529db89dc4,
         type: 3}
       propertyPath: m_Name
@@ -9991,7 +10021,7 @@ PrefabInstance:
     - target: {fileID: 4857188444772301861, guid: 0e607066faec2104d99876529db89dc4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4857188444772301882, guid: 0e607066faec2104d99876529db89dc4,
         type: 3}
