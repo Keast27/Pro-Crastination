@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\DialogueScript.cs" />
     <Compile Include="Assets\Scripts\IInteractable.cs" />
     <Compile Include="Assets\Scripts\MiniGames\BossWatch.cs" />
+    <Compile Include="Assets\Scripts\MiniGames\MemeFeed.cs" />
     <Compile Include="Assets\Scripts\MiniGames\SocialTab.cs" />
     <Compile Include="Assets\Scripts\MiniGames\WaterCooler\CupHandler.cs" />
     <Compile Include="Assets\Scripts\MiniGames\WaterCooler\WaterDispenser.cs" />
